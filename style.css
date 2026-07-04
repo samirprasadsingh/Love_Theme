@@ -1,0 +1,1674 @@
+/* =========================================
+   GOOGLE FONT RESET
+========================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --gold:#d4af37;
+    --gold-light:#f5d67b;
+
+    --black:#050505;
+
+    --white:#ffffff;
+
+    --glass:rgba(255,255,255,.08);
+
+    --pink:#ff6b9d;
+
+    --shadow:0 20px 60px rgba(0,0,0,.35);
+
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#050505;
+
+    color:white;
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
+
+/* =========================================
+        BACKGROUND
+========================================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,#38204b 0%,#050505 60%);
+
+    z-index:-4;
+
+}
+
+
+/* =========================================
+        PARTICLES LAYER
+========================================= */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-3;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================
+        DARK OVERLAY
+========================================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.25);
+
+    z-index:-2;
+
+}
+
+
+/* =========================================
+        LOADER
+========================================= */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050505;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    z-index:99999;
+
+}
+
+
+.loader-heart{
+
+    font-size:70px;
+
+    animation:heartbeat 1.2s infinite;
+
+    filter:drop-shadow(0 0 25px crimson);
+
+}
+
+
+#loader h2{
+
+    margin-top:20px;
+
+    font-weight:300;
+
+    letter-spacing:4px;
+
+    color:white;
+
+}
+
+
+@keyframes heartbeat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+25%{
+
+transform:scale(1.12);
+
+}
+
+50%{
+
+transform:scale(.95);
+
+}
+
+75%{
+
+transform:scale(1.15);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/* =========================================
+        OPENING SCREEN
+========================================= */
+
+#opening{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    position:relative;
+
+    /* FIX: opening scene must always be visible, it is not gated behind a .show toggle */
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+
+/* =========================================
+        INTRO MESSAGE
+========================================= */
+
+.message{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+    animation:fadeUp 2s ease;
+
+}
+
+
+.message p{
+
+    font-size:30px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:white;
+
+    line-height:1.8;
+
+    text-shadow:0 0 20px rgba(255,255,255,.3);
+
+}
+
+
+/* =========================================
+        DOOR AREA
+========================================= */
+
+.door-wrapper{
+
+    position:relative;
+
+    width:620px;
+
+    height:420px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* =========================================
+        DOORS
+========================================= */
+
+.door{
+
+    width:300px;
+
+    height:420px;
+
+    background:linear-gradient(
+
+        180deg,
+
+        #5b4313,
+
+        #b8860b,
+
+        #5b4313
+
+    );
+
+    border:6px solid var(--gold);
+
+    box-shadow:
+
+    inset 0 0 30px rgba(255,255,255,.15),
+
+    0 15px 40px rgba(0,0,0,.45);
+
+    position:relative;
+
+    transition:.8s;
+
+}
+
+
+#leftDoor{
+
+    border-right:2px solid #000;
+
+    border-radius:10px 0 0 10px;
+
+}
+
+
+#rightDoor{
+
+    border-left:2px solid #000;
+
+    border-radius:0 10px 10px 0;
+
+}
+
+
+/* =========================================
+        DOOR DESIGN
+========================================= */
+
+.door-design{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:170px;
+
+    height:250px;
+
+    transform:translate(-50%,-50%);
+
+    border:3px solid rgba(255,255,255,.18);
+
+    border-radius:8px;
+
+}
+
+
+.door-design::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+    border:2px solid rgba(255,255,255,.12);
+
+}
+
+
+/* =========================================
+        GOLD LIGHT BURST (was missing entirely)
+========================================= */
+
+#goldLight{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:20px;
+
+    height:420px;
+
+    transform:translate(-50%,-50%) scaleX(1);
+
+    background:radial-gradient(circle,rgba(255,240,180,.9),rgba(255,230,150,0) 70%);
+
+    filter:blur(20px);
+
+    opacity:0;
+
+    transition:1s;
+
+    pointer-events:none;
+
+    z-index:5;
+
+}
+
+
+/* =========================================
+        DOOR BUTTON
+========================================= */
+
+.door-button{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-85px;
+
+    transform:translateX(-50%);
+
+}
+
+
+#openBtn{
+
+    border:none;
+
+    outline:none;
+
+    padding:16px 40px;
+
+    border-radius:40px;
+
+    background:linear-gradient(90deg,var(--gold),var(--gold-light));
+
+    color:#111;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:0 10px 30px rgba(212,175,55,.4);
+
+}
+
+
+#openBtn i{
+
+    margin-right:10px;
+
+}
+
+
+#openBtn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 20px 45px rgba(212,175,55,.55);
+
+}
+
+
+/* =========================================
+        FADE ANIMATION
+========================================= */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/*==================================================
+        MAGIC LIGHT
+==================================================*/
+
+.door-wrapper::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:20px;
+
+    height:420px;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    background:
+
+    linear-gradient(
+
+        180deg,
+
+        rgba(255,230,150,.05),
+
+        rgba(255,240,180,.9),
+
+        rgba(255,230,150,.05)
+
+    );
+
+    filter:blur(18px);
+
+    opacity:0;
+
+    transition:1s;
+
+}
+
+
+/* when opened */
+
+.door-wrapper.open::before{
+
+    opacity:1;
+
+    width:240px;
+
+}
+
+
+/*==================================================
+        DOOR OPENING
+==================================================*/
+
+.door{
+
+    transform-origin:center;
+
+}
+
+.door-wrapper.open #leftDoor{
+
+    transform:
+
+    perspective(1200px)
+
+    rotateY(-115deg);
+
+}
+
+.door-wrapper.open #rightDoor{
+
+    transform:
+
+    perspective(1200px)
+
+    rotateY(115deg);
+
+}
+
+
+/*==================================================
+        HERO
+==================================================*/
+
+#hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:1.2s;
+
+}
+
+
+/* show hero */
+
+#hero.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/*==================================================
+        GLASS CARD
+==================================================*/
+
+.glass{
+
+    width:900px;
+
+    max-width:95%;
+
+    padding:70px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.45);
+
+    position:relative;
+
+}
+
+
+/*==================================================
+        HERO TITLE
+==================================================*/
+
+.glass h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:80px;
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+    0 0 30px rgba(255,255,255,.25);
+
+}
+
+
+.glass h2{
+
+    font-size:42px;
+
+    line-height:1.5;
+
+    font-weight:600;
+
+    margin-bottom:35px;
+
+}
+
+
+.glass span{
+
+    color:#ffd76b;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:70px;
+
+}
+
+
+/*==================================================
+        TYPING
+==================================================*/
+
+#typing{
+
+    width:80%;
+
+    margin:auto;
+
+    line-height:2;
+
+    font-size:22px;
+
+    font-weight:300;
+
+    color:#eee;
+
+    min-height:120px;
+
+}
+
+
+/*==================================================
+        LETTER BUTTON
+==================================================*/
+
+#openLetter{
+
+    margin-top:45px;
+
+    padding:18px 50px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #f5d67b,
+
+        #d4af37
+
+    );
+
+    color:#111;
+
+    transition:.4s;
+
+    box-shadow:
+
+    0 15px 35px rgba(212,175,55,.35);
+
+}
+
+
+#openLetter:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+
+    0 25px 55px rgba(212,175,55,.5);
+
+}
+
+
+/*==================================================
+        FLOATING EFFECT
+==================================================*/
+
+.glass{
+
+    animation:
+
+    floating 5s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+
+/*==================================================
+        GOLD GLOW
+==================================================*/
+
+.glass::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    rgba(255,255,255,.08),
+
+    rgba(255,255,255,0)
+
+    );
+
+    pointer-events:none;
+
+}
+
+
+/*==================================================
+        HERO RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+.glass{
+
+padding:40px 25px;
+
+}
+
+.glass h1{
+
+font-size:55px;
+
+}
+
+.glass h2{
+
+font-size:28px;
+
+}
+
+.glass span{
+
+font-size:52px;
+
+}
+
+#typing{
+
+width:100%;
+
+font-size:18px;
+
+}
+
+}
+/*==================================================
+                LETTER SECTION
+==================================================*/
+
+#letter{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    padding:120px 30px;
+
+    position:relative;
+
+}
+
+.envelope{
+
+    width:260px;
+
+    height:170px;
+
+    background:linear-gradient(145deg,#f5d67b,#d4af37);
+
+    border-radius:8px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+
+    transition:.5s;
+
+}
+
+.envelope:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+}
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:70px;
+
+    transition:.8s;
+
+}
+
+.envelope:hover .cover{
+
+    transform:rotateX(180deg);
+
+}
+
+/*==================================================
+                LETTER PAPER
+==================================================*/
+
+.letter-paper{
+
+    width:850px;
+
+    max-width:95%;
+
+    margin-top:50px;
+    display:none;
+    opacity:0;
+    transition:.6s;
+
+    background:white;
+
+    color:#333;
+
+    padding:60px;
+
+    border-radius:15px;
+
+    line-height:2;
+
+    box-shadow:0 30px 60px rgba(0,0,0,.35);
+
+    position:relative;
+
+}
+
+/* FIX: this class was never applied anywhere, so clicking the envelope did nothing */
+.letter-paper.paper-show{
+
+    display:block;
+
+    opacity:1;
+
+}
+
+.letter-paper::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:12px;
+
+    background:linear-gradient(90deg,#d4af37,#f5d67b,#d4af37);
+
+}
+
+.letter-paper h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:55px;
+
+    color:#d4af37;
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+}
+
+.letter-paper p{
+
+    font-size:21px;
+
+    text-align:center;
+
+    line-height:2.2;
+
+}
+
+/*==================================================
+                GALLERY
+==================================================*/
+
+#gallery{
+
+    padding:120px 8%;
+
+    min-height:100vh;
+
+}
+
+#gallery h2{
+
+    text-align:center;
+
+    font-size:60px;
+
+    margin-bottom:70px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#ffd76b;
+
+}
+
+.photos{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:40px;
+
+}
+
+.photos img{
+
+    width:100%;
+
+    height:340px;
+
+    object-fit:cover;
+
+    background:white;
+
+    padding:12px 12px 50px;
+
+    border-radius:6px;
+
+    transition:.5s;
+
+    box-shadow:0 25px 50px rgba(0,0,0,.4);
+
+}
+
+.photos img:nth-child(odd){
+
+    transform:rotate(-4deg);
+
+}
+
+.photos img:nth-child(even){
+
+    transform:rotate(4deg);
+
+}
+
+.photos img:hover{
+
+    transform:rotate(0deg) scale(1.07);
+
+}
+
+/*==================================================
+                TIMELINE
+==================================================*/
+
+#timeline{
+
+    min-height:100vh;
+
+    padding:120px 10%;
+
+    position:relative;
+
+}
+
+#timeline h2{
+
+    text-align:center;
+
+    font-size:60px;
+
+    color:#ffd76b;
+
+    font-family:'Great Vibes',cursive;
+
+    margin-bottom:80px;
+
+}
+
+.line{
+
+    width:5px;
+
+    height:420px;
+
+    background:#d4af37;
+
+    margin:auto;
+
+    border-radius:20px;
+
+}
+
+.event{
+
+    width:320px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+/*==================================================
+                MOBILE
+==================================================*/
+
+@media(max-width:768px){
+
+.letter-paper{
+
+padding:35px 25px;
+
+}
+
+.letter-paper h2{
+
+font-size:40px;
+
+}
+
+.letter-paper p{
+
+font-size:17px;
+
+}
+
+#gallery h2,
+
+#timeline h2{
+
+font-size:42px;
+
+}
+
+.photos img{
+
+height:260px;
+
+}
+
+.event{
+
+width:100%;
+
+}
+
+}
+/*==================================================
+                PROPOSAL
+==================================================*/
+
+#proposal{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:120px 20px;
+
+    position:relative;
+
+}
+
+#proposal::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+
+    height:400px;
+
+    background:radial-gradient(circle,#ffd76b33,transparent);
+
+    border-radius:50%;
+
+    filter:blur(50px);
+
+    z-index:-1;
+
+}
+
+#proposal h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:75px;
+
+    color:#ffd76b;
+
+    margin-bottom:20px;
+
+}
+
+#proposal h2{
+
+    font-size:42px;
+
+    font-weight:500;
+
+    margin-bottom:60px;
+
+    line-height:1.5;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    position:relative;
+
+    min-height:100px;
+
+}
+
+#yesBtn,
+#noBtn{
+
+    width:170px;
+
+    height:60px;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+#yesBtn{
+
+    background:linear-gradient(90deg,#ffd76b,#d4af37);
+
+    color:#111;
+
+    box-shadow:0 20px 40px rgba(212,175,55,.35);
+
+}
+
+#yesBtn:hover{
+
+    transform:translateY(-6px) scale(1.05);
+
+}
+
+#noBtn{
+
+    background:#ffffff15;
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(10px);
+
+    /* FIX: needed so the JS-driven "dodge" transform actually has effect without breaking flex flow */
+
+    position:relative;
+
+    transition:transform .25s ease, left .2s ease, top .2s ease;
+
+}
+
+
+/*==================================================
+                ENDING
+==================================================*/
+
+#ending{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+}
+
+#ending h1{
+
+    font-size:80px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#ffd76b;
+
+    margin-bottom:35px;
+
+}
+
+#ending p{
+
+    width:800px;
+
+    max-width:95%;
+
+    line-height:2;
+
+    font-size:22px;
+
+    color:#eeeeee;
+
+}
+
+#ending h2{
+
+    margin-top:50px;
+
+    font-size:45px;
+
+    color:#ffd76b;
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+/*==================================================
+                CELEBRATION
+==================================================*/
+
+#celebration{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:100px 20px;
+
+}
+
+#celebration h1{
+
+    font-size:70px;
+
+    font-family:'Great Vibes',cursive;
+
+    color:#ffd76b;
+
+    text-shadow:0 0 30px rgba(255,215,107,.5);
+
+}
+
+
+/*==================================================
+                FLOATING PETALS
+==================================================*/
+
+.petal{
+
+    position:fixed;
+
+    top:-40px;
+
+    color:#ff8fb6;
+
+    pointer-events:none;
+
+    animation:petalFall linear forwards;
+
+}
+
+@keyframes petalFall{
+
+0%{
+
+transform:
+translateY(0)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(120vh)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+
+/*==================================================
+                FIREWORK PARTICLES
+==================================================*/
+
+.firework{
+
+    position:fixed;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    /* FIX: had no animation before, so fireworks never appeared to "pop" */
+
+    animation:fireworkPop 1.2s ease-out forwards;
+
+}
+
+@keyframes fireworkPop{
+
+0%{
+
+transform:scale(0);
+
+opacity:1;
+
+}
+
+70%{
+
+transform:scale(1.8);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(2.6);
+
+opacity:0;
+
+}
+
+}
+
+
+/*==================================================
+                FADE SECTIONS (button-gated sections only)
+==================================================*/
+
+#hero,
+#letter,
+#celebration,
+#ending{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s ease;
+
+}
+
+#hero.show,
+#letter.show,
+#celebration.show,
+#ending.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/*==================================================
+                SCROLL-REVEAL SECTIONS
+                (FIX: this behavior was declared in CSS
+                but never triggered by any JS before)
+==================================================*/
+
+.reveal-section{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s ease;
+
+}
+
+.reveal-section.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/*==================================================
+                SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d4af37;
+
+    border-radius:30px;
+
+}
+
+
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media(max-width:900px){
+
+.door-wrapper{
+
+    width:95%;
+
+    height:300px;
+
+}
+
+.door{
+
+    height:300px;
+
+}
+
+#proposal h1{
+
+    font-size:55px;
+
+}
+
+#proposal h2{
+
+    font-size:28px;
+
+}
+
+#ending h1{
+
+    font-size:55px;
+
+}
+
+#ending p{
+
+    font-size:18px;
+
+}
+
+.buttons{
+
+    flex-direction:column;
+
+}
+
+#yesBtn,
+#noBtn{
+
+    width:230px;
+
+}
+}
+.hiddenSection{
+
+    display:none;
+
+}
+
+.show{
+
+    display:flex !important;
+
+    opacity:1 !important;
+
+    visibility:visible !important;
+
+    transform:translateY(0);
+
+}
